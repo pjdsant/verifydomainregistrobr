@@ -1,0 +1,7 @@
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\bin\Debug\VerifyDomainRegistroBr.exe.config
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\bin\Debug\VerifyDomainRegistroBr.exe
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\bin\Debug\VerifyDomainRegistroBr.pdb
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.csprojAssemblyReference.cache
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.exe
+C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.pdb
