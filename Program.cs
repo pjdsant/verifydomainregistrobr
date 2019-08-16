@@ -29,17 +29,19 @@ namespace VerifyDomainRegistroBr
 
             var jx = 0;
 
+            /*
             new Thread(ThreadOne).Start();
             ThreadOne();
             Console.ReadLine();
 
             void ThreadOne()
             {
-                StreamWriter writer = new StreamWriter(@"C:\repositorios\verifydomainregistrobr\Dominos.txt");
+            */
+                StreamWriter writer = new StreamWriter(@"C:\repositorios\verifydomainregistrobr\Dominios.txt");
 
                 try
                 {
-                    for (int i = 0; i <= 9999; i++) //defina aqui o tamanho da sequencia gerada
+                    for (int i = 27; i <= 9999; i++) //defina aqui o tamanho da sequencia gerada
                     {
                         jx = i;
                         WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
@@ -52,20 +54,31 @@ namespace VerifyDomainRegistroBr
                             Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
                         }
                         response.Close();
+
+                       
+
                     }
-                }
-                catch (WebException we)
-                {
-                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
-                }
-                finally
-                {
                     writer.Close();
 
                     //Limpando a referencia dele da memória
                     writer.Dispose();
                 }
-            }
+                catch (WebException we)
+                {
+                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                    writer.Close();
+
+                    //Limpando a referencia dele da memória
+                    writer.Dispose();
+                }
+                finally
+                {
+                   // writer.Close();
+
+                    //Limpando a referencia dele da memória
+                  //  writer.Dispose();
+                }
+            //}
 
         }
     }

@@ -5,3 +5,10 @@ C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistr
 C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.csproj.CoreCompileInputs.cache
 C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.exe
 C:\Users\admin\source\repos\VerifyDomainRegistroBr\obj\Debug\VerifyDomainRegistroBr.pdb
+C:\repositorios\verifydomainregistrobr\bin\Debug\VerifyDomainRegistroBr.exe.config
+C:\repositorios\verifydomainregistrobr\bin\Debug\VerifyDomainRegistroBr.exe
+C:\repositorios\verifydomainregistrobr\bin\Debug\VerifyDomainRegistroBr.pdb
+C:\repositorios\verifydomainregistrobr\obj\Debug\VerifyDomainRegistroBr.csprojAssemblyReference.cache
+C:\repositorios\verifydomainregistrobr\obj\Debug\VerifyDomainRegistroBr.csproj.CoreCompileInputs.cache
+C:\repositorios\verifydomainregistrobr\obj\Debug\VerifyDomainRegistroBr.exe
+C:\repositorios\verifydomainregistrobr\obj\Debug\VerifyDomainRegistroBr.pdb
