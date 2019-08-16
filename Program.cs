@@ -1,63 +1,176 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace VerifyDomainRegistroBr
 {
     class Program
     {
+        public static string IntToAlpha(int x)
+        {
+            int lowChar;
+            StringBuilder result = new StringBuilder();
+            do
+            {
+                lowChar = (x - 1) % 26;
+                x = (x - 1) / 26;
+                result.Insert(0, (char)(lowChar + 65));
+            } while (x > 0);
+            return result.ToString();
+        }
+
         static void Main(string[] args)
         {
-            var strDomain = "pjsito.com.br";
-            //var requisicaoWeb = WebRequest.CreateHttp("https://rdap.registro.br/domain/" + strDomain);
-            //requisicaoWeb.Method = "GET";
-            //requisicaoWeb.UserAgent = "VerifyDomainRegistroBr";
+            var strFind = "";
+            var strDomain = ".com.br";
 
-            // Create a request for the URL.   
-            WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + strDomain);
-           
-            // If required by the server, set the credentials.  
-            //request.Credentials = CredentialCache.DefaultCredentials;
+            var jx = 0;
 
-            // Get the response.  
-           // WebResponse response = request.GetResponse();
-            // Display the status.  
-
-            try
-            {
-                HttpWebResponse response =(HttpWebResponse)request.GetResponse();
-                Console.WriteLine( response.StatusCode);
-            }
-            catch (WebException we)
-            {
-                Console.WriteLine(((HttpWebResponse)we.Response).StatusCode);
-            }
-
-
-            //Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-
-            // Get the stream containing content returned by the server. 
-            // The using block ensures the stream is automatically closed. 
-            /*
-            using (Stream dataStream = response.GetResponseStream())
-            {
-                // Open the stream using a StreamReader for easy access.  
-                StreamReader reader = new StreamReader(dataStream);
-                // Read the content.  
-                string responseFromServer = reader.ReadToEnd();
-                // Display the content.  
-                Console.WriteLine(responseFromServer);
-            }
-            */
-
-            // Close the response.  
-            //response.Close();
-
+            new Thread(ThreadOne).Start();
+            ThreadOne();
             Console.ReadLine();
 
+            new Thread(ThreadTwo).Start();
+            ThreadTwo();
+            Console.ReadLine();
+
+            new Thread(ThreadThree).Start();
+            ThreadThree();
+            Console.ReadLine();
+
+            new Thread(ThreadFour).Start();
+            ThreadFour();
+            Console.ReadLine();
+
+            new Thread(ThreadFive).Start();
+            ThreadFive();
+            Console.ReadLine();
+
+            void ThreadOne()
+            {
+                try
+                {
+                    for (int i = 704; i <= 2703; i++) //defina aqui o tamanho da sequencia gerada
+                    {
+                        jx = i;
+                        WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
+                        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            Console.WriteLine(i);
+                            Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
+                        }
+                        response.Close();
+                    }
+                }
+                catch (WebException we)
+                {
+                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                }
+            }
+
+            void ThreadTwo()
+            {
+
+
+                try
+                {
+                    for (int i = 2704; i <= 4703; i++) //defina aqui o tamanho da sequencia gerada
+                    {
+                        jx = i;
+                        WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
+                        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            Console.WriteLine(i);
+                            Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
+                        }
+                        response.Close();
+                    }
+                }
+                catch (WebException we)
+                {
+                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                }
+            }
+
+            void ThreadThree()
+            {
+
+                try
+                {
+                    for (int i = 4704; i <= 6703; i++) //defina aqui o tamanho da sequencia gerada
+                    {
+                        jx = i;
+                        WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
+                        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            Console.WriteLine(i);
+                            Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
+                        }
+                        response.Close();
+                    }
+                }
+                catch (WebException we)
+                {
+                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                }
+            }
+
+            void ThreadFour()
+            {
+
+                try
+                {
+                    for (int i = 6704; i <= 8703; i++) //defina aqui o tamanho da sequencia gerada
+                    {
+                        jx = i;
+                        WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
+                        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            Console.WriteLine(i);
+                            Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
+                        }
+                        response.Close();
+                    }
+                }
+                catch (WebException we)
+                {
+                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                }
+            }
+
+            void ThreadFive()
+            {
+
+                try
+                {
+                    for (int i = 8704; i <= 10703; i++) //defina aqui o tamanho da sequencia gerada
+                    {
+                        jx = i;
+                        WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
+                        HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            Console.WriteLine(i);
+                            Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
+                        }
+                        response.Close();
+                    }
+                }
+                catch (WebException we)
+                {
+                    Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                }
+            }
         }
     }
 }
