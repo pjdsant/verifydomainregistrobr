@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -20,6 +21,7 @@ namespace VerifyDomainRegistroBr
             return result.ToString();
         }
 
+
         static void Main(string[] args)
         {
             var strFind = "";
@@ -33,9 +35,11 @@ namespace VerifyDomainRegistroBr
 
             void ThreadOne()
             {
+                StreamWriter writer = new StreamWriter(@"C:\repositorios\verifydomainregistrobr\Dominos.txt");
+
                 try
                 {
-                    for (int i = 27; i <= 703; i++) //defina aqui o tamanho da sequencia gerada
+                    for (int i = 0; i <= 9999; i++) //defina aqui o tamanho da sequencia gerada
                     {
                         jx = i;
                         WebRequest request = WebRequest.Create("https://rdap.registro.br/domain/" + IntToAlpha(i) + strDomain);
@@ -43,6 +47,7 @@ namespace VerifyDomainRegistroBr
 
                         if (response.StatusCode != HttpStatusCode.OK)
                         {
+                            writer.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
                             Console.WriteLine(i);
                             Console.WriteLine(IntToAlpha(i) + " = " + response.StatusCode);
                         }
@@ -52,6 +57,13 @@ namespace VerifyDomainRegistroBr
                 catch (WebException we)
                 {
                     Console.WriteLine(IntToAlpha(jx) + " = " + ((HttpWebResponse)we.Response).StatusCode);
+                }
+                finally
+                {
+                    writer.Close();
+
+                    //Limpando a referencia dele da memória
+                    writer.Dispose();
                 }
             }
 
